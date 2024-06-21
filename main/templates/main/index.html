@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Ceci Costura</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler order-2 order-md-1" type="button" data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-md-2" id="navbar-left">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand order-1 order-md-3" href="index.html"><img src="{% static 'images/logo.png' %}"
+                    alt="Logo" class="responsive-logo"></a>
+            <div class="collapse navbar-collapse order-4 order-md-4" id="navbar-right">
+                <ul class="navbar-nav ms-auto d-flex ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-person-circle carrito-login"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-cart4 carrito-login"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <button class="btn  btn-rosado" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://static.skillshare.com/uploads/learningPaths/robyn_burgess_lp_cover.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.skillshare.com/uploads/learningPaths/robyn_burgess_lp_cover.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.skillshare.com/uploads/learningPaths/robyn_burgess_lp_cover.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <section class="services-section">
+            <div class="service">
+                <i class="bi bi-lightbulb"></i>
+                <h3>NOS IMPORTA TU ROPA</h3>
+                <p>Garantizamos el cuidado y atención que tus prendas merecen. Nos dedicamos a mantenerlas en su mejor
+                    estado y adaptarlas a ti.</p>
+            </div>
+            <div class="service">
+                <i class="bi bi-arrow-through-heart"></i>
+                <h3>HECHO CON AMOR</h3>
+                <p>Cada puntada y cada prenda están hechas con dedicación y pasión por la costura, asegurando calidad en
+                    cada producto.</p>
+            </div>
+            <div class="service">
+                <i class="bi bi-star"></i>
+                <h3>COORDINACION DE VENTA</h3>
+                <p>Contacta conmigo para coordinar tu consulta y recibir asesoramiento personalizado sobre nuestros
+                    servicios.</p>
+            </div>
+        </section>
+        <section id="sobre-mi" class="section-container">
+            <div class="text-container texto-start ">
+                <h2>Mi historia</h2>
+                <br>
+                <p>"Empecé aproximadamente hace 5 años en mi hogar, arreglando mi ropa, la de mis hijas y familiares más
+                    cercanos.</p>
+                <p>Es así como se comenzó a correr la voz y algunos vecinos comenzaron a mandarme trabajos de bastas,
+                    arreglo de pantalones, vestidos, cambios de cierres en fin. </p>
+                <p>También últimamente me he dedicado a la fabricación de fundas de cojines, cosmetiqueros, sábanas,
+                    bolsos y delantales de jeans.</p>
+                <p> En Ceci Costura, no solo cosemos prendas, tejemos historias de estilo que
+                    perduran en el tiempo."</p>
+            </div>
+            <div class="image-container">
+                <img src="{% static 'images/emprendedora.jpeg' %}" alt="emprendedora">
+            </div>
+        </section>
+        <section class="section-container">
+            <div class="image-container">
+                <img src="{% static 'images/Puños Poleron.jpg' %}" alt="puños poleron">
+            </div>
+            <div class="text-container texto-end ">
+                <h2>Arreglo de ropa</h2>
+                <br>
+                <p>En Ceci Costura, nos dedicamos con pasión y dedicación a transformar cada pieza de tu guardarropa en
+                    una obra de arte.</p>
+                <p>Con nuestro servicio de arreglo de ropa, ofrecemos una experiencia de costura
+                    excepcional, donde cada puntada es un testimonio de nuestra artesanía y compromiso con la
+                    excelencia.</p>
+                <p>Desde simples ajustes hasta complejas modificaciones, nuestro equipo de expertos
+                    costureros cuidará cada detalle para asegurar que tu ropa se ajuste perfectamente a tu estilo y
+                    personalidad.</p>
+                <p>Confía en Ceci Costura para darle nueva vida a tu guardarropa y mantener tu estilo
+                    impecable en todo momento."</p>
+            </div>
+        </section>
+
+        <!-- Cards últimos servicios -->
+
+        <section class="cards">
+            <br>
+            <h3 style="text-align: center;">Nuestros Últimos Servicios</h3>
+        </section>
+
+
+
+
+    </main>
+    <!--Footer-->
+
+    <br><footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="margin-right: 150px;">
+                    <br>
+                    <h6>Horario de Atención</h6>
+                    <br>
+                    <p class="footer-text">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                    <p class="footer-text">Sábados: 8:00 AM - 1:00 PM</p>
+                    <p class="footer-text">Domingos: Cerrado</p>
+                    <p class="footer-text">Feriados: Cerrado</p>
+                </div>
+                <div class="col" style="margin-right: 150px;">
+                    <br><a href="https://www.prodemu.cl/" target="_blank">
+                        <img class="img-footer" src="{% static 'images/prodemu.png' %}"
+                            alt="logo.prodemu"></a>
+                    <br><br><a
+                        href="https://www.duoc.cl/?noticia_post_type=estudiantes-de-la-sede-valparaiso-desarrollaran-sitios-web-para-emprendedoras-beneficiadas-por-promedu"
+                        target="_blank">
+                        <img class="img-footer"
+                            src="https://www.duoc.cl/wp-content/themes/wordpress-duoc-cl/images/logo-duoc.svg"
+                            alt="logo.duoc"></a>
+
+                </div>
+                <div class="col">
+                    <br>
+                    <h6>Nuestras redes:</h6>
+                    <br>
+                    <div class="iconos">
+                        <a href="https://web.whatsapp.com/send?phone=56987795611" target="_blank"><i
+                                class="ri-whatsapp-line"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-tiktok-line"></i></a>
+                        <a href="#"><i class="ri-facebook-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <p class="footer-small">Hecho con 🤍 por Joaquín Ferrada y Maximiliano Hernández | Escuela de Informática y
+            Telecomunicaciones DuocUC | 2024 &copy;</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>
