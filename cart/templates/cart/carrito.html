@@ -44,7 +44,7 @@
                 <h2>Resumen</h2>
                 <p>Subtotal: ${{ subtotal }}</p>
                 <p>Total normal: ${{ total_normal }}</p>
-                <a href="#" class="btn btn-primary continue-button">Continuar</a>
+                <a href="{% url 'whatsapp_checkout' %}" class="btn btn-primary continue-button">Continuar</a>
                 <a href="{% url 'servicios' %}" class="btn btn-secondary continue-shopping">Seguir comprando</a>
             </div>
         </aside>

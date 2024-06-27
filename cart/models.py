@@ -10,6 +10,15 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"Cart {self.id} for {self.user}"
+    
+    def generate_whatsapp_message(self):
+        items = ServiceHasCart.objects.filter(cart=self)
+        message = "Hola, me gustaría comprar los siguientes productos:\n\n"
+        for item in items:
+            message += f"Producto: {item.service.title}\nCantidad: {item.quantity}\nPrecio: ${item.service.price * item.quantity}\n\n"
+        total = sum(item.service.price * item.quantity for item in items)
+        message += f"Total: ${total}"
+        return message
 
 class ServiceHasCart(models.Model):
     id = models.AutoField(primary_key=True)
