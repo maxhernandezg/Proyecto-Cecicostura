@@ -49,5 +49,5 @@ def remove_from_cart(request, service_id):
 def whatsapp_checkout(request):
     cart = Cart.objects.get(user=request.user)
     message = cart.generate_whatsapp_message()
-    whatsapp_url = f"https://wa.me/56974616828?text={message}"
+    whatsapp_url = f"https://wa.me/56987795611?text={message}"
     return redirect(whatsapp_url)
