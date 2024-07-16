@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <title>{{ servicio.title }}</title>
 </head>
 <body>
@@ -26,13 +27,10 @@
                         <a class="nav-link" aria-current="page" href="{% url 'index' %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#sobre-mi">Sobre mí</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulario.html">Contacto</a>
+                        <a class="nav-link" href="{% url 'formulario' %}">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -40,9 +38,24 @@
                     alt="Logo" class="responsive-logo"></a>
             <div class="collapse navbar-collapse order-4 order-md-4" id="navbar-right">
                 <ul class="navbar-nav ms-auto d-flex ">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <!--<a class="nav-link" href=""><i class="bi bi-person-circle carrito-login"></i></a>-->
+                               <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                            </form>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                        {% endif %}
+                    <!--
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-person-circle carrito-login"></i></a>
+                        <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-person-circle carrito-login"></i></a>
                     </li>
+                    -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'carrito' %}"><i class="bi bi-cart4 carrito-login"></i></a>
                     </li>
@@ -84,30 +97,35 @@
         </div>
     </div>
     
-    <footer class="footer">
+    <br><footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col" style="margin-right: 150px;">
+                    <br>
                     <h6>Horario de Atención</h6>
-                    <br><p class="footer-text">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                    <br>
+                    <p class="footer-text">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
                     <p class="footer-text">Sábados: 8:00 AM - 1:00 PM</p>
                     <p class="footer-text">Domingos: Cerrado</p>
                     <p class="footer-text">Feriados: Cerrado</p>
                 </div>
-                <div class="col">
+                <div class="col" style="margin-right: 150px;">
                     <br><a href="https://www.prodemu.cl/" target="_blank">
                         <img class="img-footer" src="{% static 'images/prodemu.png' %}"
                             alt="logo.prodemu"></a>
-                    <br><br><a href="https://www.duoc.cl/?noticia_post_type=estudiantes-de-la-sede-valparaiso-desarrollaran-sitios-web-para-emprendedoras-beneficiadas-por-promedu"
+                    <br><br><a
+                        href="https://www.duoc.cl/?noticia_post_type=estudiantes-de-la-sede-valparaiso-desarrollaran-sitios-web-para-emprendedoras-beneficiadas-por-promedu"
                         target="_blank">
                         <img class="img-footer"
                             src="https://www.duoc.cl/wp-content/themes/wordpress-duoc-cl/images/logo-duoc.svg"
                             alt="logo.duoc"></a>
 
                 </div>
-                <div class="col margin-right" style="margin-left: 150px;">
+                <div class="col">
+                    <br>
                     <h6>Nuestras redes:</h6>
-                    <br><div class="iconos">
+                    <br>
+                    <div class="iconos">
                         <a href="https://web.whatsapp.com/send?phone=56987795611" target="_blank"><i
                                 class="ri-whatsapp-line"></i></a>
                         <a href="#"><i class="ri-instagram-line"></i></a>
@@ -117,7 +135,9 @@
                 </div>
             </div>
         </div>
-        <br><br><p class="footer-small">Hecho con 🤍 por Joaquín Ferrada y Maximiliano Hernández. Escuela de Informática y Telecomunicaciones DuocUC 2024 &copy;</p>
-    </footer>
+        <br><br>
+        <p class="footer-small">Hecho con 🤍 por Joaquín Ferrada y Maximiliano Hernández | Escuela de Informática y
+            Telecomunicaciones DuocUC | 2024 &copy;</p>
+    </footer>  
 </body>
 </html>

@@ -35,13 +35,10 @@
                     <a class="nav-link" aria-current="page" href="{% url 'index' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#sobre-mi">Sobre mí</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="formulario.html">Contacto</a>
+                    <a class="nav-link" href="{% url 'formulario' %}">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -49,9 +46,24 @@
                 alt="Logo" class="responsive-logo"></a>
         <div class="collapse navbar-collapse order-4 order-md-4" id="navbar-right">
             <ul class="navbar-nav ms-auto d-flex ">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <!--<a class="nav-link" href=""><i class="bi bi-person-circle carrito-login"></i></a>-->
+                           <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </form>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                    </li>
+                    {% endif %}
+                <!--
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-person-circle carrito-login"></i></a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'carrito' %}"><i class="bi bi-cart4 carrito-login"></i></a>
                 </li>
