@@ -101,8 +101,12 @@
                 <h2>Resumen</h2>
                 <p>Subtotal: ${{ subtotal }}</p>
                 <p>Total normal: ${{ total_normal }}</p>
-                <a href="{% url 'whatsapp_checkout' %}" class="btn  continue-button" >Continuar</a>
-                <a href="{% url 'servicios' %}" class="btn continue-shopping">Seguir comprando</a>
+                {% if cart_items %}
+                    <a href="{% url 'whatsapp_checkout' %}" class="btn  continue-button" >Continuar</a>
+                    <a href="{% url 'servicios' %}" class="btn continue-shopping">Seguir comprando</a>
+                {% else %}
+                    <a href="{% url 'servicios' %}" class="btn continue-shopping">Seguir comprando</a>
+                {% endif %}
             </div>
         </aside>
     </div>
